@@ -3,9 +3,14 @@
 ## Build Setup
 
 ```
+# コンテナ作成
+$ docker-compose up -d
+
 # app コンテナの中に入る
 $ docker-compose exec app /bin/bash
 
+# VSCodeにDockerのプラグインを入れている場合は
+# attach shell でコンテナの中に入れる。
 
 # コンテナの中に入ったら、
 # 初回だけ、パッケージインストール
