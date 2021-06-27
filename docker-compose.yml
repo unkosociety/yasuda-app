@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  app:
+    image: node:14
+    ports:
+      - 80:8000
+    volumes:
+      - ./:/app
+    tty: true
+    depends_on:
+      - db
+    working_dir: /app
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: yasuda_app
+
+volumes:
+  mysql-db:
+    driver: local
